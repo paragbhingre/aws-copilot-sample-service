@@ -13,7 +13,7 @@ http:
   path: '/'
   # You can specify a custom health check path. The default is "/".
   # healthcheck: '/'
-
+  #stickiness: true
 # Configuration for your containers and service.
 image:
   # Docker build arguments. For additional overrides: https://aws.github.io/copilot-cli/docs/manifest/lb-web-service/#image-build
@@ -28,8 +28,13 @@ exec: true     # Enable running commands in your container.
 network:
   connect: true # Enable Service Connect for intra-environment traffic between services.
 
-# storage:
-  # readonly_fs: true       # Limit to read-only access to mounted root filesystems.
+#storage:
+ # volumes:
+  #  myManagedEFSVolume:
+   #   efs: true
+    #  path: /var/efs
+     # read_only: false
+  #readonly_fs: true       # Limit to read-only access to mounted root filesystems.
  
 # Optional fields for more advanced use-cases.
 #
