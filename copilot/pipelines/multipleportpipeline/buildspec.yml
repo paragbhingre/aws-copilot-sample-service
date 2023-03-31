@@ -3,19 +3,19 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      docker: 19
+      docker: 18
       ruby: 2.6
     commands:
       - echo "cd into $CODEBUILD_SRC_DIR"
       - cd $CODEBUILD_SRC_DIR
       # Download the copilot linux binary.
-      - wget -q https://ecs-cli-v2-release.s3.amazonaws.com/copilot-linux-v1.24.0
-      - mv ./copilot-linux-v1.24.0 ./copilot-linux
+      - wget -q https://ecs-cli-v2-release.s3.amazonaws.com/copilot-linux-v1.27.0
+      - mv ./copilot-linux-v1.27.0 ./copilot-linux
       - chmod +x ./copilot-linux
   build:
     commands:
       - echo "Run your tests"
-      # - make test
+      - echo ~/.docker/config.json
   post_build:
     commands:
       - ls -l
